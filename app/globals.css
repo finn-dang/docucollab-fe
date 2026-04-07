@@ -24,3 +24,309 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Ensure list markers (bullets/numbers) are visible */
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+}
+
+.ProseMirror li {
+  margin: 0.25rem 0;
+}
+
+.ProseMirror li > p {
+  margin: 0;
+}
+
+/* Task list checkbox styling */
+.ProseMirror ul[data-type="taskList"] {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.ProseMirror ul[data-type="taskList"] li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ProseMirror ul[data-type="taskList"] li > label {
+  margin: 0;
+}
+/* TipTap Editor Heading Styles */
+.ProseMirror h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.ProseMirror h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.ProseMirror h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.ProseMirror h5 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.ProseMirror h6 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+  color: #6b7280;
+}
+/* ========================================
+   TABLE STYLES FOR TIPTAP EDITOR
+   ======================================== */
+
+/* Table Container */
+.ProseMirror .tableWrapper {
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Base Table Style */
+.ProseMirror table {
+  border-collapse: collapse;
+  margin: 0;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  background-color: #ffffff;
+}
+
+/* Table Cells */
+.ProseMirror td,
+.ProseMirror th {
+  border: 1px solid #e5e7eb;
+  box-sizing: border-box;
+  min-width: 1em;
+  padding: 10px 12px;
+  position: relative;
+  vertical-align: top;
+  transition: background-color 0.15s ease;
+}
+
+/* Table Header Cells */
+.ProseMirror th {
+  background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #1f2937;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Hover Effect on Cells */
+.ProseMirror td:hover {
+  background-color: #fef3c7;
+}
+
+/* Selected Cell for Merging/Splitting */
+.ProseMirror .selectedCell {
+  background-color: #dbeafe !important;
+  box-shadow: inset 0 0 0 2px #3b82f6;
+}
+
+/* Resize Handle */
+.ProseMirror .column-resize-handle {
+  background-color: #3b82f6;
+  bottom: -2px;
+  pointer-events: none;
+  position: absolute;
+  right: -2px;
+  top: 0;
+  width: 3px;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+/* Resize Cursor */
+.ProseMirror.resize-cursor {
+  cursor: ew-resize;
+  cursor: col-resize;
+}
+
+/* Table Border Hover */
+.ProseMirror table td:first-child,
+.ProseMirror table th:first-child {
+  border-left: 1px solid #e5e7eb;
+}
+
+.ProseMirror table td:last-child,
+.ProseMirror table th:last-child {
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Zebra Striping for Table Rows */
+.ProseMirror table tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.ProseMirror table tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Header Row Hover */
+.ProseMirror table tr:first-child th:hover {
+  background: linear-gradient(to bottom, #e5e7eb, #d1d5db);
+}
+
+/* Remove duplicate borders when col/rowspan is used */
+.ProseMirror table td[colspan="1"],
+.ProseMirror table td[rowspan="1"] {
+  border: 1px solid #e5e7eb;
+}
+
+/* Fixed Table Width for Resizable Columns */
+.ProseMirror table .tableHeaderCell {
+  position: relative;
+  user-select: none;
+}
+
+/* Collaborative Selection Styles */
+.ProseMirror .collaboration-selection {
+  background-color: rgba(59, 130, 246, 0.15);
+  border-radius: 3px;
+}
+
+/* Focus Styles */
+.ProseMirror table td:focus,
+.ProseMirror table th:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #3b82f6;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .ProseMirror table {
+    font-size: 0.75rem;
+  }
+
+  .ProseMirror td,
+  .ProseMirror th {
+    padding: 6px 8px;
+  }
+}
+
+/* Custom Cell Background Color */
+.ProseMirror td[data-background-color],
+.ProseMirror th[data-background-color] {
+  background-color: attr(data-background-color);
+}
+/* Custom Cell Background */
+.ProseMirror td[style*="background-color"],
+.ProseMirror th[style*="background-color"] {
+  transition: background-color 0.2s ease;
+}
+
+.ProseMirror td[data-background-color="yellow"] {
+  background-color: #fef3c7;
+}
+
+.ProseMirror td[data-background-color="blue"] {
+  background-color: #dbeafe;
+}
+
+.ProseMirror td[data-background-color="green"] {
+  background-color: #d1fae5;
+}
+
+.ProseMirror td[data-background-color="red"] {
+  background-color: #fee2e2;
+}
+
+/* Find and Replace highlight */
+.ProseMirror .find-selection {
+  background-color: #ffeb3b;
+  box-shadow: 0 0 0 2px #ffeb3b;
+  color: #000;
+}
+
+.ProseMirror .find-selection.current {
+  background-color: #ff9800;
+  box-shadow: 0 0 0 2px #ff9800;
+  color: #000;
+} /* Make selected text more visible */
+.ProseMirror ::selection {
+  background-color: #ffeb3b;
+}
+
+.ProseMirror .selected-text {
+  background-color: #ffeb3b;
+}
+/* Mention styles */
+.ProseMirror .mention {
+  background-color: #dbeafe;
+  border-radius: 0.375rem;
+  color: #2563eb;
+  font-weight: 500;
+  padding: 0.125rem 0.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ProseMirror .mention:hover {
+  background-color: #bfdbfe;
+  box-shadow: 0 0 0 2px #93c5fd;
+}
+
+/* Tippy tooltip styles */
+.tippy-box {
+  background-color: transparent !important;
+}
+
+.tippy-content {
+  padding: 0 !important;
+}
+/* Mention styles - make sure this exists */
+.ProseMirror .mention {
+  background-color: #dbeafe;
+  border-radius: 0.375rem;
+  color: #2563eb;
+  font-weight: 500;
+  padding: 0.125rem 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.ProseMirror .mention:hover {
+  background-color: #bfdbfe;
+  box-shadow: 0 0 0 2px #93c5fd;
+}
